@@ -11,7 +11,7 @@ window.addEventListener('DOMContentLoaded', async function() {
       const name = el.getAttribute('data-repo');
   
       const data = await get(`https://api.github.com/repos/${name}`);
-  
+      
       data.description = (data.description || '').replace(/:\w+:/g, function(match) {
         const name = match.substring(1, match.length - 1);
         const emoji = emojis[name];
